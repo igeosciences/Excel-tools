@@ -9,3 +9,4 @@ Excel custom Function
 3. 打开Excel，点击文件，点选项，加载项，管理：Excel加载项，点转到，勾选刚才代码里的函数名（getmoles），确定。
 4. 在表格中和=sum类似的输入=getmoles，氧化物名字无所谓大小写，有空格也行。
 
+![demo](resources/demo.gif)
