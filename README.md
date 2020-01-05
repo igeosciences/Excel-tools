@@ -10,3 +10,5 @@ Excel custom Function
 4. 在表格中和=sum类似的输入=getmoles，氧化物名字无所谓大小写，有空格也行。
 
 ![demo](resources/demo.gif)
+
+![demo](resources/addOxides.gif)
