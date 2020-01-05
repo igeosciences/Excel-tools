@@ -2,7 +2,7 @@
 
 Excel custom Function
 
-## getMols
+## getMoles
 
 1.新建Excel表格，（最好关闭别的Excel表），按alt + F11，点击插入，模块，复制代码（复制getMolecularWeigth.txt里全部的内容），代码里的摩尔质量可以自己添加，修改。
 
