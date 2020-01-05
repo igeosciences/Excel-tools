@@ -10,7 +10,7 @@ Excel custom Function
 
 3.再打开Excel，点击文件，点选项，点击加载项，在“管理：Excel加载项”右边，点转到，勾选刚才代码里的函数名（getmoles），确定，这就相当于全局启用了这个函数，以后在任何一个Excel表格中都可以把这个函数当做内置函数一样使用。
 
-4. 在表格中和=sum类似的输入=getmoles，氧化物名字无所谓大小写，有空格也行（比如feo也可以）。
+4.在表格中和=sum类似的输入=getmoles，氧化物名字无所谓大小写，有空格也行（比如feo也可以）。
 
 ![demo](resources/demo.gif)
 
