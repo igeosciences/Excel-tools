@@ -15,3 +15,7 @@ Excel custom Function
 ![demo](resources/demo.gif)
 
 ![demo](resources/addOxides.gif)
+
+## getNumber
+
+![demo](resources/getnumber.gif)
