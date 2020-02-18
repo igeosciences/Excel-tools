@@ -285,3 +285,101 @@ Function GETMOLES(name)
     
 End Function
 
+Function GETNUMBER(text)
+
+    temptext = text
+    text = Trim(text)
+    If Len(text) > 0 Then
+    
+        If Not IsNumeric(text) Then
+            
+            ' 常见格式：2.48(5)  2.48 (5)  2.48 ±2  3·52?  2.48(5) 1,000
+            ' 区分需要替换的符号和去除的符号
+            ' 需要去除的
+            Dim BlankIndex As Long
+            BlankIndex = InStr(1, text, " ")
+            If BlankIndex = 0 Then
+                BlankIndex = 100000
+            End If
+                
+            
+            Dim LeftBracketIndex As Long
+            LeftBracketIndex = InStr(1, text, "(")
+            If LeftBracketIndex = 0 Then
+                LeftBracketIndex = 100000
+            End If
+            
+            Dim RightBracketIndex As Long
+            RightBracketIndex = InStr(1, text, ")")
+            If RightBracketIndex = 0 Then
+                RightBracketIndex = 100000
+            End If
+            
+            Dim QuestionMarkIndex As Long
+            QuestionMarkIndex = InStr(1, text, "?")
+            If QuestionMarkIndex = 0 Then
+                QuestionMarkIndex = 100000
+            End If
+           
+            Dim PlusMinusIndex As Long
+            PlusMinusIndex = InStr(1, text, "±")
+            If PlusMinusIndex = 0 Then
+                PlusMinusIndex = 100000
+            End If
+
+            
+            minindex = WorksheetFunction.Min(BlankIndex, LeftBracketIndex, RightBracketIndex, QuestionMarkIndex, PlusMinusIndex)
+            
+            If minindex < 100000 Then
+            
+                text = Left(text, minindex - 1)
+            End If
+            
+                                    
+            ' 需要替换的
+            Dim DotIndex As Long
+            DotIndex = InStr(1, text, "·")
+            If Not DotIndex = 0 Then
+                text = Replace(text, "·", ".", 1, 1)
+            End If
+            
+            Dim CommaIndex As Long
+            CommaIndex = InStr(1, text, ",")
+            If Not CommaIndex = 0 Then
+                text = Replace(text, ",", "", 1, 1)
+            End If
+            
+           
+            
+            If Val(text) = 0 Then
+            
+            
+                If Len(text) > 1 Then
+                
+                   If (Asc(Left(text, 1)) >= 65 And Asc(Left(text, 1)) <= 90) Or (Asc(Left(text, 1)) >= 97 And Asc(Left(text, 1)) <= 122) Then
+                   
+                       GETNUMBER = temptext
+                   Else
+                       GETNUMBER = Val("-" & Right(text, Len(text) - 1))
+        
+                   End If
+                Else
+                    GETNUMBER = temptext
+                    
+                End If
+                    
+            Else
+                
+                GETNUMBER = Val(text)
+            End If
+            
+            
+        Else
+
+            GETNUMBER = Val(text)
+        End If
+    End If
+    
+    
+
+End Function
