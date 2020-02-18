@@ -18,4 +18,6 @@ Excel custom Function
 
 ## getNumber
 
+去除从ScienceDirect网页上直接复制的表格数据的非数字格式
+
 ![demo](resources/getnumber.gif)
